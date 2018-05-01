@@ -1,38 +1,34 @@
-var TSA = 0;
-var grade =9
-var height =0
-var width = 0
-var price = 0;
-var length =0
 
 module.exports  = class Box {
 
     constructor (w, l, h, g) {
-        width = w;
-        length = l;
-        height = h;
-        grade = g;
+        this.width = w;
+        this.length = l;
+        this.height = h;
+        this.grade = g;
+        this. TSA = 0;
+        this.price  =0
     };
 
     getWidth() {
-        return width;
+        return this.width;
     }
 
     getLength() {
-        return length;
+        return this.length;
     }
     getHeight() {
-        return height;
+        return this.height;
     }
 
     getPrice() {
-        return Math.round(((price * 100) / 100.0));
+        return Math.round(((this.price * 100) / 100.0));
     }
     setPrice(p) {
-        price = p;
+        this.price = p;
     }
     getTotalSurfaceArea() {
-        return TSA = 2 * ((width * length) + (width * height) + (height * length));;
+        return this.TSA = 2 * ((this.width * this.length) + (this.width * this.height) + (this.height * this.length));;
     }
 
 };
