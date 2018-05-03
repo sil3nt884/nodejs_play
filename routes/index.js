@@ -1,18 +1,40 @@
 var express = require('express');
-var  Boxtype1 = require("../objects/Boxtype1");
 var router = express.Router();
+var OrderList = require("../objects/OrderList");
+var Order = require("../objects/Order");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    var box1 = new Boxtype1(20,20,20,1);
-    box1.getCost(1);
+    //console.log(res.data);
+    //var orderList = new OrderList();
+    //var order = new Order();
+    var box  = {
+        boxPrice : 0,
+        boxItem : 0
+    }
+
+    res.render('index', box);
+});
 
 
-  var box = {
-    boxPrice : box1.getPrice(),
-    boxItem : "No box "+box1.getPrice()
-  };
-  res.render('index', box);
+
+router.post('/addOrder', function(req, res, next) {
+   var formData = req.body;
+   var height = formData.height;
+   var width = formData.width;
+   var lenght = formData.length;
+   var quantity = formData.quantity;
+   var cardGrade = formData.cardgrade;
+   var orderList = new OrderList();
+    console.log(orderList);
+    var bos =  new Order(cardGrade, height, lenght, width, quantity, false, false, false, false, false, orderList);
+   console.log(bos);
+    var box  = {
+        boxPrice :0,
+        boxItem : 0
+    }
+
+   // res.render('index', box);
 });
 
 module.exports = router;

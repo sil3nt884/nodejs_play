@@ -3336,10 +3336,10 @@ var ScrollSpy = function ($$$1) {
   var Selector = {
     DATA_SPY: '[data-spy="scroll"]',
     ACTIVE: '.active',
-    NAV_LIST_GROUP: '.nav, .list-group',
+    NAV_LIST_GROUP: '.nav, .orderList-group',
     NAV_LINKS: '.nav-link',
     NAV_ITEMS: '.nav-item',
-    LIST_ITEMS: '.list-group-item',
+    LIST_ITEMS: '.orderList-group-item',
     DROPDOWN: '.dropdown',
     DROPDOWN_ITEMS: '.dropdown-item',
     DROPDOWN_TOGGLE: '.dropdown-toggle'
@@ -3641,10 +3641,10 @@ var Tab = function ($$$1) {
   };
   var Selector = {
     DROPDOWN: '.dropdown',
-    NAV_LIST_GROUP: '.nav, .list-group',
+    NAV_LIST_GROUP: '.nav, .orderList-group',
     ACTIVE: '.active',
     ACTIVE_UL: '> li > .active',
-    DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
+    DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="orderList"]',
     DROPDOWN_TOGGLE: '.dropdown-toggle',
     DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
     /**

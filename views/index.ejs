@@ -3,35 +3,40 @@
   <head>
     <title></title>
     <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
-    <script src=="/javascript/bootstrap.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
   <body>
 
   <div class="container">
-  <div stlye=" padding-top: 10px;
-text-align: center; margin-left: 0; margin-right: 0; " class="h1">FlexBox</div>
-      <form method="POST" style="padding-top : 14px" >
+  <div stlye=" padding-top: 10px; text-align: center; margin-left: 0; margin-right: 0; " class="h1">FlexBox</div>
+      <form name="form1" method="POST" style="padding-top : 14px" >
         <div class="border border-primary">
         <div class="form-group">
           <label for="height">Height</label>
-          <input class="form-control" id ="height" type="text"/>
+          <input class="form-control" id="height" name ="height" type="text"/>
         </div>
 
         <div class="form-group">
           <label for="width">Width</label>
-          <input class="form-control"  id="width" type="text"/>
+          <input class="form-control"  id="width" name="width" type="text"/>
         </div>
         <div class="form-group">
           <label for="length"> Length</label>
-          <input class="form-control" id="length" type="text"/>
+          <input class="form-control" id="length" name="length" type="text"/>
         </div>
         <div class="form-group">
           <label for="quantity">Quantity</label>
-          <input  class="form-control" id="quantity" type="text"/>
+          <input  class="form-control"  id="quantity" name="quantity" type="text"/>
         </div>
+            <div class="form-group">
+                <label for="cardgrade">Card Grade</label>
+                <input  class="form-control"  id="cardgrade" name="cardgrade" type="text"/>
+            </div>
+
         <div class="form-group">
           <label for="colours">Colour</label>
-            <select  class="form-control" id="Colour">
+            <select  class="form-control"  id="colour" name="Colour">
               <option value="1 Colour">1 Colour</option>
               <option value="2 Colours">2 Colours</option>
             </select>
@@ -40,7 +45,7 @@ text-align: center; margin-left: 0; margin-right: 0; " class="h1">FlexBox</div>
           <div id="price">Price: £<%= boxPrice %></div>
         </div>
         <div class="form-group">
-          <button class="btn btn-primary" >Add</button>
+          <button onclick="addOrder()" class="btn btn-primary" >Add</button>
           <button class="btn btn-primary" >Remove</button>
           <button class="btn btn-primary" >Submit</button>
         </div>
@@ -48,8 +53,44 @@ text-align: center; margin-left: 0; margin-right: 0; " class="h1">FlexBox</div>
         <div class="form-group">
           <div id="price">Added: <%= boxItem %></div>
         </div>
+
+
+
       </form>
 
-  </div>
+
+
+
+</div>
+
+
+  <script>
+      $('form').submit(function(e){
+          e.preventDefault();
+      });
+
+
+      function addOrder(){
+          var data = $('form').serialize();
+          console.log(data);
+          $.ajax({
+              type: 'POST',
+              headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+              processData:false,
+              contentType:false,
+              data: data,
+              url: 'addOrder',
+              success: function(data) {
+                  // console.log(data);
+              }});
+
+      }
+
+
+  </script>
+
+
+
+
   </body>
 </html>

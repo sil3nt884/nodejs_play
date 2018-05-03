@@ -43,7 +43,7 @@ module.exports  = class Boxtype5 extends Box{
                     total = this.getPrice() * 0.15;
                     total2 = this.getPrice() * 0.10;
                     total3 = this.getPrice() * 0.07;
-                    this.setPrice(total+total2 + total3);
+                    this.setPrice(total+total2 + total3);\
                 }
                 break;
         }

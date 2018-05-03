@@ -2199,7 +2199,7 @@ function findIndex(arr, prop, value) {
 }
 
 /**
- * Loop trough the list of modifiers and run them in order,
+ * Loop trough the orderList of modifiers and run them in order,
  * each of them will then edit the data object.
  * @method
  * @memberof Popper.Utils
@@ -2450,7 +2450,7 @@ function isNumeric(n) {
  * @memberof Popper.Utils
  * @argument {Element} element - Element to apply the style to
  * @argument {Object} styles
- * Object with a list of properties and values which will be applied to the element
+ * Object with a orderList of properties and values which will be applied to the element
  */
 function setStyles(element, styles) {
   Object.keys(styles).forEach(function (prop) {
@@ -2469,7 +2469,7 @@ function setStyles(element, styles) {
  * @memberof Popper.Utils
  * @argument {Element} element - Element to apply the attributes to
  * @argument {Object} styles
- * Object with a list of properties and values which will be applied to the element
+ * Object with a orderList of properties and values which will be applied to the element
  */
 function setAttributes(element, attributes) {
   Object.keys(attributes).forEach(function (prop) {
@@ -2637,7 +2637,7 @@ function computeStyle(data, options) {
  * It checks if the needed modifier is listed and enabled.
  * @method
  * @memberof Popper.Utils
- * @param {Array} modifiers - list of modifiers
+ * @param {Array} modifiers - orderList of modifiers
  * @param {String} requestingName - name of requesting modifier
  * @param {String} requestedName - name of requested modifier
  * @returns {Boolean}
@@ -2767,7 +2767,7 @@ function getOppositeVariation(variation) {
  * - `bottom`
  * - `left`
  *
- * Each placement can have a variation from this list:
+ * Each placement can have a variation from this orderList:
  * - `-start`
  * - `-end`
  *
@@ -3009,7 +3009,7 @@ function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
   // will use the other one
   var useHeight = ['right', 'left'].indexOf(basePlacement) !== -1;
 
-  // Split the offset string to obtain a list of values and operands
+  // Split the offset string to obtain a orderList of values and operands
   // The regex addresses values with the plus or minus sign in front (+10, -20, etc)
   var fragments = offset.split(/(\+|\-)/).map(function (frag) {
     return frag.trim();
@@ -3025,7 +3025,7 @@ function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
     console.warn('Offsets separated by white space(s) are deprecated, use a comma (,) instead.');
   }
 
-  // If divider is found, we divide the list of values and operands to divide
+  // If divider is found, we divide the orderList of values and operands to divide
   // them by ofset X and Y.
   var splitRegex = /\s*,\s*|\s+/;
   var ops = divider !== -1 ? [fragments.slice(0, divider).concat([fragments[divider].split(splitRegex)[0]]), [fragments[divider].split(splitRegex)[1]].concat(fragments.slice(divider + 1))] : [fragments];
@@ -3454,7 +3454,7 @@ var modifiers = {
     /**
      * @prop {String|Array} behavior='flip'
      * The behavior used to change the popper's placement. It can be one of
-     * `flip`, `clockwise`, `counterclockwise` or an array with a list of valid
+     * `flip`, `clockwise`, `counterclockwise` or an array with a orderList of valid
      * placements (with optional variations).
      */
     behavior: 'flip',
@@ -3718,7 +3718,7 @@ var Popper = function () {
       _this.options.modifiers[name] = _extends$1({}, Popper.Defaults.modifiers[name] || {}, options.modifiers ? options.modifiers[name] : {});
     });
 
-    // Refactoring modifiers' list (Object => Array)
+    // Refactoring modifiers' orderList (Object => Array)
     this.modifiers = Object.keys(this.options.modifiers).map(function (name) {
       return _extends$1({
         name: name
@@ -5770,10 +5770,10 @@ var ScrollSpy = function ($$$1) {
   var Selector = {
     DATA_SPY: '[data-spy="scroll"]',
     ACTIVE: '.active',
-    NAV_LIST_GROUP: '.nav, .list-group',
+    NAV_LIST_GROUP: '.nav, .orderList-group',
     NAV_LINKS: '.nav-link',
     NAV_ITEMS: '.nav-item',
-    LIST_ITEMS: '.list-group-item',
+    LIST_ITEMS: '.orderList-group-item',
     DROPDOWN: '.dropdown',
     DROPDOWN_ITEMS: '.dropdown-item',
     DROPDOWN_TOGGLE: '.dropdown-toggle'
@@ -6075,10 +6075,10 @@ var Tab = function ($$$1) {
   };
   var Selector = {
     DROPDOWN: '.dropdown',
-    NAV_LIST_GROUP: '.nav, .list-group',
+    NAV_LIST_GROUP: '.nav, .orderList-group',
     ACTIVE: '.active',
     ACTIVE_UL: '> li > .active',
-    DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
+    DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="orderList"]',
     DROPDOWN_TOGGLE: '.dropdown-toggle',
     DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
     /**
