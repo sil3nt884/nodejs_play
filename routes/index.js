@@ -20,21 +20,62 @@ router.get('/', function(req, res, next) {
 
 router.post('/addOrder', function(req, res, next) {
    var formData = req.body;
-   var height = formData.height;
-   var width = formData.width;
-   var lenght = formData.length;
-   var quantity = formData.quantity;
-   var cardGrade = formData.cardgrade;
-   var orderList = new OrderList();
-    console.log(orderList);
-    var bos =  new Order(cardGrade, height, lenght, width, quantity, false, false, false, false, false, orderList);
-   console.log(bos);
-    var box  = {
-        boxPrice :0,
-        boxItem : 0
+   var height = parseInt(formData.height);
+   var width = parseInt(formData.width);
+   var lenght = parseInt(formData.length);
+   var quantity = parseInt(formData.quantity);
+   var cardGrade =parseInt(formData.cardgrade);
+   var colour = formData.Colour;
+   var colour1 = false;
+   var colour2 = false;
+   var stabletops = formData.stabletops;
+   var bottom =   formData.bottom;
+   var concer = formData.concer;
+   if(colour=="colour 1"){
+       colour1 = true;
+   }
+   else if(colour == "colour 2"){
+       colour1 = true;
+       colour2 = true;
+
+   }
+   else if(colour=="No Colour"){
+       colour1 = false;
+       colour2 = false;
+   }
+   if(stabletops=="true" ) {
+       stabletops = true;
+   }
+    if(bottom=="true") {
+        bottom = true;
+    }
+    if(concer == "true"){
+        concer = true;
     }
 
-   // res.render('index', box);
+    if( stabletops == undefined){
+        stabletops = false;
+    }
+    if( bottom == undefined){
+        bottom = false;
+    }
+    if( concer == undefined){
+        concer = false;
+    }
+   console.log(formData);
+   console.log(cardGrade, height, lenght, width, quantity, colour1, colour2, bottom, stabletops, concer);
+   //var orderList = new OrderList();
+   var order =  new Order(cardGrade, height, lenght, width, quantity, true, false, false, true, false);
+  // orderList.addOrders(cardGrade,  height, lenght, width,  quantity, false,  fasle, false, corner, add, this.valid);
+
+    var box ={
+
+        boxPrice : order.getAdd(),
+        boxItem : order.getAdd()
+    };
+    //console.log("here.... 2 "+box.boxPrice);
+
+   res.send(box);
 });
 
 module.exports = router;

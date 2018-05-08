@@ -37,12 +37,19 @@
         <div class="form-group">
           <label for="colours">Colour</label>
             <select  class="form-control"  id="colour" name="Colour">
-              <option value="1 Colour">1 Colour</option>
-              <option value="2 Colours">2 Colours</option>
+                <option value="No Colour">No Colour</option>
+              <option value="colour 1">1 Colour</option>
+              <option  value="colour 2">2 Colours</option>
             </select>
         </div>
+            <div class="form-group">
+                <input type="radio" name="bottom" value=true> bottom<br>
+                <input type="radio" name="concer" value=true>concers<br>
+                <input type="radio" name="stabletops" value=true> Stable Tops
+            </div>
+
         <div class="form-group">
-          <div id="price">Price: £<%= boxPrice %></div>
+          <div class="price", name="price" id="price" >Price: £<%= boxPrice %></div>
         </div>
         <div class="form-group">
           <button onclick="addOrder()" class="btn btn-primary" >Add</button>
@@ -51,9 +58,8 @@
         </div>
       </div>
         <div class="form-group">
-          <div id="price">Added: <%= boxItem %></div>
+          <div class="boxes", name="boxes" id="boxes">Added: <%= boxItem %></div>
         </div>
-
 
 
       </form>
@@ -81,7 +87,8 @@
               data: data,
               url: 'addOrder',
               success: function(data) {
-                  // console.log(data);
+                   console.log(data);
+                   $("div.price").text("Price £"+data.boxPrice);
               }});
 
       }

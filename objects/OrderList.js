@@ -10,7 +10,7 @@ module.exports = class OrderList{
 
     }
 
-    addOrder(cardGrade,  height, lenght, width,  quantity, colour,  colour2,
+    addOrders(cardGrade,  height, lenght, width,  quantity, colour,  colour2,
     bottom, concer, price, valid){
         if(valid){
             var  basket = {cardGrade, height, lenght, width, quantity, colour, colour2, bottom, concer, price};
@@ -20,6 +20,10 @@ module.exports = class OrderList{
         }
 
 
+    }
+
+    getTotal(){
+        return this.total;
     }
 
     removeLastOrder(){
@@ -33,7 +37,9 @@ module.exports = class OrderList{
         }
     }
 
-
+    setTotal(orderTotal){
+        this.total = orderTotal;
+    }
     sumbitOrder (){
         if (this.number > 0) {
             this.generateReceipt();

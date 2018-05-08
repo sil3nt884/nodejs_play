@@ -15,40 +15,44 @@ module.exports  = class Boxtype4 extends Box{
         this.GC5 = 1.30
     }
 
-    getCost = function (grade){
+    getCost  (){
         var total = 0;
         var total2 = 0;
-        switch(grade){
+        switch(this.grade){
             case 2:
                 this.setPrice(this.GC2 *  this.getTotalSurfaceArea());
                 if(this.colour && this.bottom){
-                    total = this.getPrice() * 0.15;
-                    total2 = this.getPrice() * 0.10;
-                    this.setPrice(total+total2);
+                    var TSA = this.GC2 * this.getTotalSurfaceArea()
+                    total = TSA * 0.15;
+                    total2 = TSA * 0.10;
+                    this.setPrice(total+total2+TSA);
                 }
                 break;
             case 3 :
                 this.setPrice(this.GC3 * this.getTotalSurfaceArea());
                 if(this.colour && this.bottom){
-                    total = this.getPrice() * 0.15;
-                    total2 = this.getPrice() * 0.10;
-                    this.setPrice(total+total2);
+                   var TSA = this.GC3 * this.getTotalSurfaceArea()
+                    total = TSA * 0.15;
+                    total2 = TSA * 0.10;
+                    this.setPrice(total+total2+TSA);
                 }
                 break;
             case 4:
                 this.setPrice(this.GC4 * this.getTotalSurfaceArea())
                 if(this.colour && this.bottom){
-                    total = this.getPrice() * 0.15;
-                    total2 = this.getPrice() * 0.10;
-                    this.setPrice(total+total2);
+                    var TSA = this.GC4 *this.getTotalSurfaceArea()
+                    total = TSA * 0.15;
+                    total2 = TSA * 0.10;
+                    this.setPrice(total+total2+TSA);
                 }
                 break;
             case 5:
                 this.setPrice(this.GC5 * this.getTotalSurfaceArea())
                 if(this.colour && this.bottom){
-                    total = this.getPrice() * 0.15;
-                    total2 = this.getPrice() * 0.10;
-                    this.setPrice(total+total2);
+                    var TSA = this.GC5 * this.getTotalSurfaceArea()
+                    total = TSA * 0.15;
+                    total2 = TSA * 0.10;
+                    this.setPrice(total+total2+TSA);
                 }
                 break;
         }

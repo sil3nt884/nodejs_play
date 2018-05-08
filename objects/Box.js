@@ -6,7 +6,7 @@ module.exports  = class Box {
         this.length = l;
         this.height = h;
         this.grade = g;
-        this. TSA = 0;
+        this.TSA = 0;
         this.price  =0
     };
 
